@@ -1,0 +1,603 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>main_function</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-11-30"><meta name="DC.source" content="main_function.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">&#38543;&#26426;&#29983;&#25104;&#29289;&#36136;&#20449;&#24687;&#30697;&#38453;</a></li><li><a href="#2">&#27169;&#25311;&#21442;&#25968;&#35774;&#35745;</a></li><li><a href="#3">&#27169;&#25311;&#35745;&#31639;&#36807;&#31243;</a></li><li><a href="#4">&#27169;&#25311;&#32467;&#26524;&#22270;&#29255;&#32472;&#21046;</a></li><li><a href="#5">&#25968;&#25454;&#20445;&#23384;</a></li><li><a href="#6">&#27169;&#25311;&#35745;&#31639;&#30340;&#29983;&#38271;&#25511;&#21046;&#20989;&#25968;</a></li><li><a href="#7">&#25968;&#25454;&#35835;&#21462;&#31243;&#24207;</a></li><li><a href="#8">&#33740;&#31181;&#23646;&#24615;&#27169;&#22411;&#29983;&#25104;</a></li></ul></div><h2 id="1">&#38543;&#26426;&#29983;&#25104;&#29289;&#36136;&#20449;&#24687;&#30697;&#38453;</h2><pre class="codeinput"><span class="comment">%&#35828;&#26126;</span>
+<span class="comment">%&#23646;&#24615;,1&#65289;&#32784;&#30416;&#33021;&#21147;-SaltResistant &#22522;&#20110;&#33740;&#31181;&#23646;&#24615;&#36827;&#34892;&#27491;&#24577;&#20998;&#24067;</span>
+<span class="comment">%2&#65289;&#22522;&#30784;&#29983;&#38271;&#36895;&#29575; BaseGrow &#23454;&#39564;&#25311;&#21512;&#33707;&#29305;&#26041;&#31243; &#26681;&#25454;&#29983;&#38271;&#25233;&#21046;</span>
+<span class="comment">%3) &#20135;&#37240;&#33021;&#21147; AcidProdce &#22522;&#20110;&#23454;&#39564;&#25311;&#21512;&#20998;&#26512;</span>
+<span class="comment">%4) &#37240;&#32784;&#21463;&#33021;&#21147; AcidTolerance &#22522;&#20110;&#33740;&#31181;&#23646;&#24615;&#36827;&#34892;&#27491;&#24577;&#20998;&#24067;</span>
+<span class="comment">%5) &#29983;&#29289;&#31181;&#31867;&#26631;&#31614; species &#33740;&#31181;&#22266;&#26377;&#23646;&#24615;</span>
+<span class="comment">%&#21021;&#22987;&#21270;</span>
+clc
+clear
+close <span class="string">all</span>
+<span class="comment">%&#35835;&#21462;&#27169;&#25311;&#33740;&#31181;&#23646;&#24615;</span>
+workbookFile=<span class="string">'C:\Users\Administrator\Desktop\&#30416;&#37240;&#27169;&#22411;\a1.xlsx'</span>;
+a_vc=xlsread(workbookFile,<span class="string">'A11:P22'</span>);
+<span class="comment">%&#35835;&#21462;&#27169;&#25311;&#20449;&#24687;&#30697;&#38453;</span>
+stast_set=xlsread(workbookFile,<span class="string">'B1:B6'</span>);
+Salt_set=xlsread(workbookFile,<span class="string">'B1:B1'</span>);
+<span class="comment">%&#35835;&#21462;&#33740;&#31181;&#21517;&#31216;&#23646;&#24615;</span>
+sheetName=<span class="string">'sheet2'</span>;
+dataLines=[1,stast_set(4)];
+sp_name = importfile_spname(workbookFile, sheetName, dataLines);
+<span class="comment">% stast_set</span>
+species=1;<span class="comment">%&#21021;&#22987;&#21270;</span>
+sp_num=stast_set(4);<span class="comment">%&#23646;&#20998;&#31867;&#25968;&#30446;</span>
+sp_num_mean=stast_set(5);<span class="comment">%&#27599;&#20010;&#23646;&#27169;&#25311;&#25968;&#30446;</span>
+gg=cell(sp_num_mean*sp_num,6);<span class="comment">%&#23450;&#20041;&#23646;&#24615;&#30697;&#38453;</span>
+<span class="keyword">for</span> i=1:sp_num
+    species=i;
+    <span class="keyword">for</span> j=1:sp_num_mean
+        [SaltResistant,BaseGrow,AcidProdce,AcidTolerance,maxBioss,Stata_Bioos]=ASTC(species,a_vc);
+        gg{j+(i-1)*sp_num_mean,5}=species;<span class="comment">%&#29983;&#29289;&#26631;&#21069;</span>
+        gg{j+(i-1)*sp_num_mean,6}=Stata_Bioos;<span class="comment">%&#21021;&#22987;&#29983;&#29289;&#37327;</span>
+        gg{j+(i-1)*sp_num_mean,7}=maxBioss;<span class="comment">%&#26368;&#22823;&#29983;&#29289;&#37327;</span>
+        gg{j+(i-1)*sp_num_mean,1}=SaltResistant;<span class="comment">%&#30416;&#32784;&#21463;</span>
+        gg{j+(i-1)*sp_num_mean,2}=BaseGrow;<span class="comment">%&#22522;&#30784;&#29983;&#38271;&#36895;&#29575;</span>
+        gg{j+(i-1)*sp_num_mean,3}=AcidProdce/10;<span class="comment">%</span>
+        gg{j+(i-1)*sp_num_mean,4}=AcidTolerance;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><h2 id="2">&#27169;&#25311;&#21442;&#25968;&#35774;&#35745;</h2><pre class="codeinput">p=stast_set(2);
+p_max=stast_set(3);
+timeMax=stast_set(6);
+disp(strcat(<span class="string">'&#30416;&#24230;&#20026;&#65306;'</span>,num2str(Salt_set)))
+disp(strcat(<span class="string">'&#21021;&#22987;&#37240;&#24230;&#20026;&#65306;'</span>,num2str(p)))
+disp(strcat(<span class="string">'&#27169;&#25311;&#26102;&#38388;&#20026;&#65306;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>))
+disp(strcat(<span class="string">'&#27169;&#25311;&#23646;&#31181;&#31867;&#65306;'</span>,num2str(sp_num)))
+disp(strcat(<span class="string">'&#27169;&#25311;&#27599;&#20010;&#23646;&#20869;&#29289;&#31181;&#25968;&#30446;&#65306;'</span>,num2str(sp_num_mean)))
+disp(strcat(<span class="string">'&#27169;&#25311;&#23646;&#21253;&#25324;&#65306;'</span>))
+disp(strcat(sp_name))
+</pre><pre class="codeoutput">&#30416;&#24230;&#20026;&#65306;0.08
+&#21021;&#22987;&#37240;&#24230;&#20026;&#65306;0
+&#27169;&#25311;&#26102;&#38388;&#20026;&#65306;150&#22825;
+&#27169;&#25311;&#23646;&#31181;&#31867;&#65306;12
+&#27169;&#25311;&#27599;&#20010;&#23646;&#20869;&#29289;&#31181;&#25968;&#30446;&#65306;50
+&#27169;&#25311;&#23646;&#21253;&#25324;&#65306;
+    {'Klebsiella. spp'      }
+    {'Acinetobacter. spp'   }
+    {'Enterobacter. spp'    }
+    {'Sphingobacterium. spp'}
+    {'Leuconostoc. spp'     }
+    {'Lactococcus. spp'     }
+    {'Acetobacter. spp'     }
+    {'Weissella. spp'       }
+    {'Lactobacillus. spp'   }
+    {'Pediococcus. spp'     }
+    {'Erwinia. spp'         }
+    {'Streptococcus. spp'   }
+
+</pre><h2 id="3">&#27169;&#25311;&#35745;&#31639;&#36807;&#31243;</h2><pre class="codeinput"><span class="comment">%1 &#29983;&#38271;&#35745;&#31639;</span>
+<span class="comment">%2 &#30416;&#31579;&#36873;</span>
+<span class="comment">%3 &#20135;&#37240;</span>
+<span class="comment">%4&#37240;&#32784;&#21463;&#35745;&#31639;</span>
+dx=zeros(size(gg,1),1);<span class="comment">%&#21021;&#22987;&#21270;</span>
+theta=zeros(size(gg,1),1);
+rfun=zeros(size(gg,1),1);
+gg_m=cell2mat(gg);
+x=gg_m(:,8);<span class="comment">%&#21021;&#22987;&#29983;&#29289;&#37327;</span>
+x_max_s=gg_m(:,9);
+epsilon=gg_m(:,1);
+Acid_alpha=gg_m(:,3);
+Acid_beta=gg_m(:,4);
+rmax=gg_m(:,2);
+x_time=zeros(size(gg,1),timeMax);
+K_H=gg_m(:,5);
+n_H=gg_m(:,6);
+<span class="comment">% theta=GR_Acid(rmax,rmax,p,K_H,n_H);</span>
+<span class="keyword">for</span> i=1:size(gg,1)
+    theta(i)=GR_Acid(rmax(i),rmax(i),p,K_H(i),n_H(i));
+<span class="keyword">end</span>
+<span class="comment">% theta=gg_m(:,2);</span>
+<span class="keyword">for</span> t=1:timeMax
+    <span class="comment">%&#35745;&#31639;&#29983;&#38271;&#36807;&#31243;&#19982;&#37240;&#29983;&#25104;</span>
+    <span class="keyword">for</span> i=1:size(gg,1)
+        <span class="keyword">if</span> x(i)&lt;=0 || isnan(x(i))
+            x(i)=0;
+            <span class="keyword">continue</span>
+        <span class="keyword">end</span>
+        [dx(i),rfun(i)]=great_dx(x(i),theta(i),epsilon(i),x_max_s(i),rmax(i));
+        dp=Acid_p(Acid_alpha,Acid_beta,x(i),dx(i));
+    <span class="keyword">end</span>
+    <span class="comment">%&#36164;&#28304;&#26356;&#26032;</span>
+    p=sum(dp(dp&gt;=0))+p;
+    <span class="keyword">if</span> p&gt;=p_max
+        p=p_max;
+    <span class="keyword">end</span>
+    p_t(t)=p;
+
+    x=x+dx;<span class="comment">%&#29983;&#29289;&#37327;&#26356;&#26032;</span>
+    x(x&lt;=0.01)=0;
+    x(isnan(x(:,end)))=0;
+    <span class="comment">%&#37240;&#25233;&#21046;&#19982;&#30416;&#31579;&#36873;&#20316;&#29992;</span>
+    <span class="keyword">for</span> i=1:size(gg,1)
+        theta(i)=GR_Acid(0,rmax(i),p,K_H(i),n_H(i));
+    <span class="keyword">end</span>
+    x_time(:,t)=x;
+<span class="keyword">end</span>
+x_data=zeros(sp_num,timeMax);
+<span class="keyword">for</span> i=1:sp_num
+    species=i;
+    x_data(i,:)=sum(x_time(gg_m(:,7)==species,:));
+    x_f{i}=x_time(gg_m(:,7)==species,:);
+<span class="keyword">end</span>
+</pre><h2 id="4">&#27169;&#25311;&#32467;&#26524;&#22270;&#29255;&#32472;&#21046;</h2><pre class="codeinput">figure
+plot(x_time,<span class="string">'.'</span>)
+xlabel(<span class="string">'&#27169;&#25311;&#33740;&#31181;'</span>)
+ylabel(<span class="string">'&#29983;&#29289;&#37327;OD_{600}'</span>)
+title(<span class="string">'&#29983;&#29289;&#37327;&#21464;&#21270;&#19982;&#27169;&#25311;&#26102;&#38388;'</span>)
+saveas(gcf,strcat(<span class="string">'&#27169;&#25311;&#33740;&#31181;&#29983;&#29289;&#37327;&#21464;&#21270;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.bmp'</span>))
+figure
+plot(p_t)
+xlabel(<span class="string">'&#26102;&#38388;'</span>)
+ylabel(<span class="string">'&#37240;&#31215;&#32047;'</span>)
+title(<span class="string">'&#37240;&#31215;&#32047;&#36895;&#29575;&#19982;&#26102;&#38388;&#20851;&#31995;'</span>)
+saveas(gcf,strcat(<span class="string">'&#27169;&#25311;&#33740;&#31181;&#37240;&#31215;&#32047;&#36895;&#29575;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.bmp'</span>))
+figure
+plot(x_data'./sp_num_mean,<span class="string">'DisplayName'</span>,<span class="string">'x_data'</span>)
+xlabel(<span class="string">'&#26102;&#38388;'</span>)
+ylabel(<span class="string">'&#31181;&#32676;&#23494;&#24230;'</span>)
+title(<span class="string">'&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;'</span>)
+legend(sp_name)
+saveas(gcf,strcat(<span class="string">'&#27169;&#25311;&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.bmp'</span>))
+figure
+cfu_fendu=100*x_data./sum(x_data);<span class="comment">%&#24402;&#19968;&#21270;&#20016;&#24230;</span>
+cfu_fendu(isnan(cfu_fendu(:,end)))=0;
+bar(cfu_fendu',<span class="string">'stacked'</span>,<span class="string">'DisplayName'</span>,<span class="string">'cfu_fendu'</span>)
+xlabel(<span class="string">'&#26102;&#38388;'</span>)
+ylabel(<span class="string">'&#20016;&#24230;'</span>)
+title(<span class="string">'&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;'</span>)
+legend(sp_name)
+saveas(gcf,strcat(<span class="string">'&#27169;&#25311;&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;(&#26609;&#29366;&#65289;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.bmp'</span>))
+figure
+num=cfu_fendu(:,end);
+pie(cfu_fendu(:,end));
+legend(sp_name,<span class="string">'Position'</span>,[0.00714286930031253 0.67420636541629 0.269642857142857 0.309920634920635])
+title(<span class="string">'&#26368;&#21518;&#19968;&#20195;&#30340;&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;&#65288;&gt;=1%&#65289;'</span>)
+saveas(gcf,strcat(<span class="string">'&#27169;&#25311;&#26368;&#21518;&#19968;&#20195;&#30340;&#31181;&#32676;&#23494;&#24230;&#20998;&#24067;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.bmp'</span>))
+</pre><img vspace="5" hspace="5" src="main_function_01.png" alt=""> <img vspace="5" hspace="5" src="main_function_02.png" alt=""> <img vspace="5" hspace="5" src="main_function_03.png" alt=""> <img vspace="5" hspace="5" src="main_function_04.png" alt=""> <img vspace="5" hspace="5" src="main_function_05.png" alt=""> <h2 id="5">&#25968;&#25454;&#20445;&#23384;</h2><pre class="codeinput"><span class="comment">%&#26368;&#21518;&#19968;&#20195;&#20016;&#23500;&#24230;</span>
+writematrix(cfu_fendu(:,end),<span class="string">'cfu.txt'</span>)
+<span class="comment">%&#20445;&#23384;&#36807;&#31243;&#37327;</span>
+col_name={<span class="string">'&#30416;&#32784;&#21463;'</span>,<span class="string">'&#26368;&#22823;&#29983;&#38271;&#37327;'</span>,<span class="string">'&#20135;&#37240;&#36895;&#29575;a'</span>,<span class="string">'&#20135;&#37240;&#36895;&#29575;b'</span>,<span class="string">'&#37240;&#32784;&#21463;&#25296;&#28857;'</span>,<span class="string">'&#25233;&#21046;&#26354;&#32447;&#24418;&#29366;&#21442;&#25968;'</span>,<span class="string">'&#20998;&#31867;&#26631;&#31614;'</span>,<span class="string">'&#21021;&#22987;&#25509;&#31181;&#37327;'</span>,<span class="string">'&#29702;&#35770;&#26368;&#22823;&#29983;&#38271;&#37327;'</span>};
+writecell(col_name,<span class="string">'&#23646;&#24615;&#26631;&#31614;.txt'</span>)
+xlswrite(strcat(<span class="string">'&#27169;&#25311;&#33740;&#31181;&#23646;&#24615;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.xls'</span>),gg_m)
+xlswrite(strcat(<span class="string">'&#27169;&#25311;&#36807;&#31243;&#37327;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.xls'</span>),x_time)
+xlswrite(strcat(<span class="string">'&#27169;&#25311;&#20016;&#24230;&#21464;&#21270;'</span>,num2str(Salt_set),<span class="string">'%&#30416;&#24230;'</span>,<span class="string">'&#27169;&#25311;&#26102;&#38388;'</span>,num2str(timeMax),<span class="string">'&#22825;'</span>,<span class="string">'.xls'</span>),cfu_fendu)
+</pre><h2 id="6">&#27169;&#25311;&#35745;&#31639;&#30340;&#29983;&#38271;&#25511;&#21046;&#20989;&#25968;</h2><p>&#29983;&#38271;&#26356;&#26032;</p><pre class="codeinput"><span class="keyword">function</span> [dx,rfun]=great_dx(x,theta,epsilon,x_max_s,rmax)
+<span class="comment">%&#29983;&#38271;&#36895;&#29575;&#26356;&#26032;</span>
+rfun=@(theta,epsilon,rmax)(rmax*theta*(1-epsilon));
+<span class="comment">%&#35745;&#31639;&#29983;&#29289;&#37327;&#21464;&#21270;</span>
+dx=x*rfun(theta,epsilon,rmax)*(1-x/x_max_s);
+<span class="keyword">if</span> nargout&gt;=2
+    rfun=rfun(theta,epsilon,rmax);
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="comment">% &#24213;&#29289;&#28040;&#32791;&#26041;&#31243;</span>
+<span class="keyword">function</span> ds=Sub_comsumption(x,Y_C,rfun)
+ds=-1*rfun*(x/Y_C);
+<span class="keyword">end</span>
+<span class="comment">% &#37240;&#29983;&#20135;&#26041;&#31243;</span>
+<span class="keyword">function</span> dp=Acid_p(alpha,beta,x,dx)
+dp=alpha*dx+x*beta;
+<span class="keyword">end</span>
+<span class="comment">% &#36164;&#28304;&#29983;&#38271;</span>
+<span class="keyword">function</span> theta=s_Mnd(theta_max,Ks,S)
+theta=(theta_max*S)/(Ks+S);
+<span class="keyword">end</span>
+<span class="comment">% &#37240;&#25233;&#21046;&#26041;&#31243;</span>
+<span class="keyword">function</span> epsilon=GR_Acid(GR_MAX,epsilon_s,P,K_H,n_H)
+epsilon=epsilon_s*(log2(1+GR_MAX+(1-GR_MAX)/(1+(P\K_H)^n_H)));
+<span class="keyword">end</span>
+</pre><h2 id="7">&#25968;&#25454;&#35835;&#21462;&#31243;&#24207;</h2><pre class="codeinput"><span class="keyword">function</span> a1S1 = importfile_spname(workbookFile, sheetName, dataLines)
+
+<span class="comment">% &#36755;&#20837;&#22788;&#29702;</span>
+
+<span class="comment">% &#22914;&#26524;&#26410;&#25351;&#23450;&#24037;&#20316;&#34920;&#65292;&#21017;&#23558;&#35835;&#21462;&#31532;&#19968;&#24352;&#24037;&#20316;&#34920;</span>
+<span class="keyword">if</span> nargin == 1 || isempty(sheetName)
+    sheetName = 1;
+<span class="keyword">end</span>
+
+<span class="comment">% &#22914;&#26524;&#26410;&#25351;&#23450;&#34892;&#30340;&#36215;&#28857;&#21644;&#32456;&#28857;&#65292;&#21017;&#20250;&#23450;&#20041;&#40664;&#35748;&#20540;&#12290;</span>
+<span class="keyword">if</span> nargin &lt;= 2
+    dataLines = [1, 12];
+<span class="keyword">end</span>
+
+<span class="comment">% &#35774;&#32622;&#23548;&#20837;&#36873;&#39033;&#24182;&#23548;&#20837;&#25968;&#25454;</span>
+opts = spreadsheetImportOptions(<span class="string">"NumVariables"</span>, 1);
+
+<span class="comment">% &#25351;&#23450;&#24037;&#20316;&#34920;&#21644;&#33539;&#22260;</span>
+opts.Sheet = sheetName;
+opts.DataRange = <span class="string">"A"</span> + dataLines(1, 1) + <span class="string">":A"</span> + dataLines(1, 2);
+
+<span class="comment">% &#25351;&#23450;&#21015;&#21517;&#31216;&#21644;&#31867;&#22411;</span>
+opts.VariableNames = <span class="string">"Klebsiellaspp"</span>;
+opts.VariableTypes = <span class="string">"char"</span>;
+
+<span class="comment">% &#25351;&#23450;&#21464;&#37327;&#23646;&#24615;</span>
+opts = setvaropts(opts, <span class="string">"Klebsiellaspp"</span>, <span class="string">"WhitespaceRule"</span>, <span class="string">"preserve"</span>);
+opts = setvaropts(opts, <span class="string">"Klebsiellaspp"</span>, <span class="string">"EmptyFieldRule"</span>, <span class="string">"auto"</span>);
+
+<span class="comment">% &#23548;&#20837;&#25968;&#25454;</span>
+a1S1 = readtable(workbookFile, opts, <span class="string">"UseExcel"</span>, false);
+
+<span class="keyword">for</span> idx = 2:size(dataLines, 1)
+    opts.DataRange = <span class="string">"A"</span> + dataLines(idx, 1) + <span class="string">":A"</span> + dataLines(idx, 2);
+    tb = readtable(workbookFile, opts, <span class="string">"UseExcel"</span>, false);
+    a1S1 = [a1S1; tb]; <span class="comment">%#ok&lt;AGROW&gt;</span>
+<span class="keyword">end</span>
+
+<span class="comment">% &#36716;&#25442;&#20026;&#36755;&#20986;&#31867;&#22411;</span>
+a1S1 = table2cell(a1S1);
+numIdx = cellfun(@(x) ~isnan(str2double(x)), a1S1);
+a1S1(numIdx) = cellfun(@(x) {str2double(x)}, a1S1(numIdx));
+<span class="keyword">end</span>
+</pre><h2 id="8">&#33740;&#31181;&#23646;&#24615;&#27169;&#22411;&#29983;&#25104;</h2><pre class="codeinput"><span class="keyword">function</span> [SaltResistant,BaseGrow,AcidProdce,AcidTolerance,maxBioss,Stata_Bioos]=ASTC(species,KK)
+<span class="comment">%&#30416;&#32784;&#21442;&#25968;</span>
+SaltResistant_mean=KK(species,1);
+SaltResistant_std=KK(species,2);
+SaltResistant=abs(normrnd(SaltResistant_mean,SaltResistant_std));
+SaltResistant(SaltResistant&gt;=1)=1;
+<span class="comment">% BaseGrow %&#26368;&#22823;&#29983;&#38271;&#36895;&#29575;</span>
+BaseGrow_mean=KK(species,3);
+BaseGrow_std=KK(species,4);
+BaseGrow=abs(normrnd(BaseGrow_mean,BaseGrow_std));
+<span class="comment">%&#20135;&#37240;&#36895;&#29575;&#21442;&#25968;A</span>
+AcidProdce_A_mean=KK(species,5);
+AcidProdce_A_std=KK(species,6);
+AcidProdce_A=abs(normrnd(AcidProdce_A_mean,AcidProdce_A_std));
+<span class="comment">%&#20135;&#37240;&#36895;&#29575;&#21442;&#25968;B</span>
+AcidProdce_B_mean=KK(species,7);
+AcidProdce_B_std=KK(species,8);
+AcidProdce_B=abs(normrnd(AcidProdce_B_mean,AcidProdce_B_std));
+AcidProdce=[AcidProdce_A,AcidProdce_B];
+<span class="comment">%&#32784;&#37240;&#36895;&#29575;&#21442;&#25968;A</span>
+AcidTolerance_A_mean=KK(species,9);
+AcidTolerance_A_std=KK(species,10);
+AcidTolerance_A=normrnd(AcidTolerance_A_mean,AcidTolerance_A_std);
+<span class="comment">%&#32784;&#37240;&#36895;&#29575;&#21442;&#25968;B</span>
+AcidTolerance_B_mean=KK(species,11);
+AcidTolerance_B_std=KK(species,12);
+AcidTolerance_B=normrnd(AcidTolerance_B_mean,AcidTolerance_B_std);
+AcidTolerance=[AcidTolerance_A,AcidTolerance_B];
+<span class="comment">%&#26368;&#22823;&#29983;&#29289;&#37327;</span>
+maxBioss_mean=KK(species,13);
+maxBioss_std=KK(species,14);
+maxBioss=abs(normrnd(maxBioss_mean,maxBioss_std));
+<span class="comment">%&#26368;&#22823;&#29983;&#29289;&#37327;</span>
+Stata_Bioos_mean=KK(species,15);
+Stata_Bioos_std=KK(species,16);
+Stata_Bioos=abs(normrnd(Stata_Bioos_mean,Stata_Bioos_std));
+<span class="keyword">end</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% 随机生成物质信息矩阵
+%说明
+%属性,1）耐盐能力-SaltResistant 基于菌种属性进行正态分布
+%2）基础生长速率 BaseGrow 实验拟合莫特方程 根据生长抑制
+%3) 产酸能力 AcidProdce 基于实验拟合分析
+%4) 酸耐受能力 AcidTolerance 基于菌种属性进行正态分布
+%5) 生物种类标签 species 菌种固有属性
+%初始化
+clc
+clear
+close all
+%读取模拟菌种属性
+workbookFile='C:\Users\Administrator\Desktop\盐酸模型\a1.xlsx';
+a_vc=xlsread(workbookFile,'A11:P22');
+%读取模拟信息矩阵
+stast_set=xlsread(workbookFile,'B1:B6');
+Salt_set=xlsread(workbookFile,'B1:B1');
+%读取菌种名称属性
+sheetName='sheet2';
+dataLines=[1,stast_set(4)];
+sp_name = importfile_spname(workbookFile, sheetName, dataLines);
+% stast_set
+species=1;%初始化
+sp_num=stast_set(4);%属分类数目
+sp_num_mean=stast_set(5);%每个属模拟数目
+gg=cell(sp_num_mean*sp_num,6);%定义属性矩阵
+for i=1:sp_num
+    species=i;
+    for j=1:sp_num_mean
+        [SaltResistant,BaseGrow,AcidProdce,AcidTolerance,maxBioss,Stata_Bioos]=ASTC(species,a_vc);
+        gg{j+(i-1)*sp_num_mean,5}=species;%生物标前
+        gg{j+(i-1)*sp_num_mean,6}=Stata_Bioos;%初始生物量
+        gg{j+(i-1)*sp_num_mean,7}=maxBioss;%最大生物量
+        gg{j+(i-1)*sp_num_mean,1}=SaltResistant;%盐耐受
+        gg{j+(i-1)*sp_num_mean,2}=BaseGrow;%基础生长速率
+        gg{j+(i-1)*sp_num_mean,3}=AcidProdce/10;%
+        gg{j+(i-1)*sp_num_mean,4}=AcidTolerance;
+    end
+end
+%% 模拟参数设计
+p=stast_set(2);
+p_max=stast_set(3);
+timeMax=stast_set(6);
+disp(strcat('盐度为：',num2str(Salt_set)))
+disp(strcat('初始酸度为：',num2str(p)))
+disp(strcat('模拟时间为：',num2str(timeMax),'天'))
+disp(strcat('模拟属种类：',num2str(sp_num)))
+disp(strcat('模拟每个属内物种数目：',num2str(sp_num_mean)))
+disp(strcat('模拟属包括：'))
+disp(strcat(sp_name))
+%% 模拟计算过程
+%1 生长计算
+%2 盐筛选
+%3 产酸
+%4酸耐受计算
+dx=zeros(size(gg,1),1);%初始化
+theta=zeros(size(gg,1),1);
+rfun=zeros(size(gg,1),1);
+gg_m=cell2mat(gg);
+x=gg_m(:,8);%初始生物量
+x_max_s=gg_m(:,9);
+epsilon=gg_m(:,1);
+Acid_alpha=gg_m(:,3);
+Acid_beta=gg_m(:,4);
+rmax=gg_m(:,2);
+x_time=zeros(size(gg,1),timeMax);
+K_H=gg_m(:,5);
+n_H=gg_m(:,6);
+% theta=GR_Acid(rmax,rmax,p,K_H,n_H);
+for i=1:size(gg,1)
+    theta(i)=GR_Acid(rmax(i),rmax(i),p,K_H(i),n_H(i));
+end
+% theta=gg_m(:,2);
+for t=1:timeMax
+    %计算生长过程与酸生成
+    for i=1:size(gg,1)
+        if x(i)<=0 || isnan(x(i))
+            x(i)=0;
+            continue
+        end
+        [dx(i),rfun(i)]=great_dx(x(i),theta(i),epsilon(i),x_max_s(i),rmax(i));
+        dp=Acid_p(Acid_alpha,Acid_beta,x(i),dx(i));
+    end
+    %资源更新
+    p=sum(dp(dp>=0))+p;
+    if p>=p_max
+        p=p_max;
+    end
+    p_t(t)=p;
+    
+    x=x+dx;%生物量更新
+    x(x<=0.01)=0;
+    x(isnan(x(:,end)))=0;
+    %酸抑制与盐筛选作用
+    for i=1:size(gg,1)
+        theta(i)=GR_Acid(0,rmax(i),p,K_H(i),n_H(i));
+    end
+    x_time(:,t)=x;
+end
+x_data=zeros(sp_num,timeMax);
+for i=1:sp_num
+    species=i;
+    x_data(i,:)=sum(x_time(gg_m(:,7)==species,:));
+    x_f{i}=x_time(gg_m(:,7)==species,:);
+end
+%% 模拟结果图片绘制
+figure
+plot(x_time,'.')
+xlabel('模拟菌种')
+ylabel('生物量OD_{600}')
+title('生物量变化与模拟时间')
+saveas(gcf,strcat('模拟菌种生物量变化',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.bmp'))
+figure
+plot(p_t)
+xlabel('时间')
+ylabel('酸积累')
+title('酸积累速率与时间关系')
+saveas(gcf,strcat('模拟菌种酸积累速率',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.bmp'))
+figure
+plot(x_data'./sp_num_mean,'DisplayName','x_data')
+xlabel('时间')
+ylabel('种群密度')
+title('种群密度分布')
+legend(sp_name)
+saveas(gcf,strcat('模拟种群密度分布',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.bmp'))
+figure
+cfu_fendu=100*x_data./sum(x_data);%归一化丰度
+cfu_fendu(isnan(cfu_fendu(:,end)))=0;
+bar(cfu_fendu','stacked','DisplayName','cfu_fendu')
+xlabel('时间')
+ylabel('丰度')
+title('种群密度分布')
+legend(sp_name)
+saveas(gcf,strcat('模拟种群密度分布(柱状）',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.bmp'))
+figure
+num=cfu_fendu(:,end);
+pie(cfu_fendu(:,end));
+legend(sp_name,'Position',[0.00714286930031253 0.67420636541629 0.269642857142857 0.309920634920635])
+title('最后一代的种群密度分布（>=1%）')
+saveas(gcf,strcat('模拟最后一代的种群密度分布',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.bmp'))
+%% 数据保存
+%最后一代丰富度
+writematrix(cfu_fendu(:,end),'cfu.txt')
+%保存过程量
+col_name={'盐耐受','最大生长量','产酸速率a','产酸速率b','酸耐受拐点','抑制曲线形状参数','分类标签','初始接种量','理论最大生长量'};
+writecell(col_name,'属性标签.txt')
+xlswrite(strcat('模拟菌种属性',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.xls'),gg_m)
+xlswrite(strcat('模拟过程量',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.xls'),x_time)
+xlswrite(strcat('模拟丰度变化',num2str(Salt_set),'%盐度','模拟时间',num2str(timeMax),'天','.xls'),cfu_fendu)
+%% 模拟计算的生长控制函数
+% 生长更新
+function [dx,rfun]=great_dx(x,theta,epsilon,x_max_s,rmax)
+%生长速率更新
+rfun=@(theta,epsilon,rmax)(rmax*theta*(1-epsilon));
+%计算生物量变化
+dx=x*rfun(theta,epsilon,rmax)*(1-x/x_max_s);
+if nargout>=2
+    rfun=rfun(theta,epsilon,rmax);
+end
+end
+
+% 底物消耗方程
+function ds=Sub_comsumption(x,Y_C,rfun)
+ds=-1*rfun*(x/Y_C);
+end
+% 酸生产方程
+function dp=Acid_p(alpha,beta,x,dx)
+dp=alpha*dx+x*beta;
+end
+% 资源生长
+function theta=s_Mnd(theta_max,Ks,S)
+theta=(theta_max*S)/(Ks+S);
+end
+% 酸抑制方程
+function epsilon=GR_Acid(GR_MAX,epsilon_s,P,K_H,n_H)
+epsilon=epsilon_s*(log2(1+GR_MAX+(1-GR_MAX)/(1+(P\K_H)^n_H)));
+end
+%% 数据读取程序
+function a1S1 = importfile_spname(workbookFile, sheetName, dataLines)
+
+% 输入处理
+
+% 如果未指定工作表，则将读取第一张工作表
+if nargin == 1 || isempty(sheetName)
+    sheetName = 1;
+end
+
+% 如果未指定行的起点和终点，则会定义默认值。
+if nargin <= 2
+    dataLines = [1, 12];
+end
+
+% 设置导入选项并导入数据
+opts = spreadsheetImportOptions("NumVariables", 1);
+
+% 指定工作表和范围
+opts.Sheet = sheetName;
+opts.DataRange = "A" + dataLines(1, 1) + ":A" + dataLines(1, 2);
+
+% 指定列名称和类型
+opts.VariableNames = "Klebsiellaspp";
+opts.VariableTypes = "char";
+
+% 指定变量属性
+opts = setvaropts(opts, "Klebsiellaspp", "WhitespaceRule", "preserve");
+opts = setvaropts(opts, "Klebsiellaspp", "EmptyFieldRule", "auto");
+
+% 导入数据
+a1S1 = readtable(workbookFile, opts, "UseExcel", false);
+
+for idx = 2:size(dataLines, 1)
+    opts.DataRange = "A" + dataLines(idx, 1) + ":A" + dataLines(idx, 2);
+    tb = readtable(workbookFile, opts, "UseExcel", false);
+    a1S1 = [a1S1; tb]; %#ok<AGROW>
+end
+
+% 转换为输出类型
+a1S1 = table2cell(a1S1);
+numIdx = cellfun(@(x) ~isnan(str2double(x)), a1S1);
+a1S1(numIdx) = cellfun(@(x) {str2double(x)}, a1S1(numIdx));
+end
+%% 菌种属性模型生成
+function [SaltResistant,BaseGrow,AcidProdce,AcidTolerance,maxBioss,Stata_Bioos]=ASTC(species,KK)
+%盐耐参数
+SaltResistant_mean=KK(species,1);
+SaltResistant_std=KK(species,2);
+SaltResistant=abs(normrnd(SaltResistant_mean,SaltResistant_std));
+SaltResistant(SaltResistant>=1)=1;
+% BaseGrow %最大生长速率
+BaseGrow_mean=KK(species,3);
+BaseGrow_std=KK(species,4);
+BaseGrow=abs(normrnd(BaseGrow_mean,BaseGrow_std));
+%产酸速率参数A
+AcidProdce_A_mean=KK(species,5);
+AcidProdce_A_std=KK(species,6);
+AcidProdce_A=abs(normrnd(AcidProdce_A_mean,AcidProdce_A_std));
+%产酸速率参数B
+AcidProdce_B_mean=KK(species,7);
+AcidProdce_B_std=KK(species,8);
+AcidProdce_B=abs(normrnd(AcidProdce_B_mean,AcidProdce_B_std));
+AcidProdce=[AcidProdce_A,AcidProdce_B];
+%耐酸速率参数A
+AcidTolerance_A_mean=KK(species,9);
+AcidTolerance_A_std=KK(species,10);
+AcidTolerance_A=normrnd(AcidTolerance_A_mean,AcidTolerance_A_std);
+%耐酸速率参数B
+AcidTolerance_B_mean=KK(species,11);
+AcidTolerance_B_std=KK(species,12);
+AcidTolerance_B=normrnd(AcidTolerance_B_mean,AcidTolerance_B_std);
+AcidTolerance=[AcidTolerance_A,AcidTolerance_B];
+%最大生物量
+maxBioss_mean=KK(species,13);
+maxBioss_std=KK(species,14);
+maxBioss=abs(normrnd(maxBioss_mean,maxBioss_std));
+%最大生物量
+Stata_Bioos_mean=KK(species,15);
+Stata_Bioos_std=KK(species,16);
+Stata_Bioos=abs(normrnd(Stata_Bioos_mean,Stata_Bioos_std));
+end
+
+
+##### SOURCE END #####
+--></body></html>
